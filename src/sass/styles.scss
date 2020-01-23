@@ -1,0 +1,22 @@
+@import './vendor/materialize/materialize.scss';
+@import './vendor/font-awesome/font-awesome.scss';
+@import './override.scss';
+
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../fonts/Roboto-Light.ttf')  format('truetype'), /* Safari, Android, iOS */
+}
+
+
+.app-background {
+  background-color: rgb(25, 56, 73);
+}
+
+.no-margin {
+  margin: 0 !important;
+}
+
+.no-padding {
+  padding: 0 !important;
+}

@@ -1,0 +1,21 @@
+<div class="contact-card-wrapper">
+	<div class="card blue-grey darken-2">
+		<a class="btn-floating waves-effect btn-flat btn favorite-button">
+			<i data-bind="click: $data.favoriteClickHandler, css: {'fa-star-o': $data.contact.isFavorite() === false, 'fa-star': $data.contact.isFavorite() === true}" class="red-text fa" aria-hidden="true"></i>
+		</a>
+		<div class="card-content">
+			<img class="responsive-img circle user-profile-img" data-bind="attr: {src: $data.contact.pictureUrl}">
+			<h6 class="white-text center-align" data-bind="text: $data.contact.firstName"></h6>
+			<p class="no-margin subtitle center-align" data-bind="text: $data.contact.email"></p>
+			<p class="no-margin subtitle center-align" data-bind="text: $data.contact.phone"></p>
+		</div>
+		 <div class="card-action row no-margin">
+			<div class="col s6 center">
+				<a data-bind="click: $data.editClickHandler">Edit</a>
+			</div>
+			<div class="col s6 center">
+				<a data-bind="click: $data.deleteClickHandler" class="no-margin">Delete</a>
+			</div>
+		</div> 
+	</div>
+</div>

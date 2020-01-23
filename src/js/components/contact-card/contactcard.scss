@@ -1,0 +1,36 @@
+.contact-card-wrapper {
+    color: white;
+    position: relative;
+
+    * {
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .subtitle {
+        color: #90a4ae;
+    }
+
+    .user-profile-img {
+        width: 64px;
+    }
+
+    .favorite-button {
+        position: absolute;
+        right: 10px;
+        top: 5px;
+    }
+
+    .favorite-button:hover {
+        background-color: transparent;
+    }
+
+    .user-profile-img {
+        display: block;
+        margin: 0 auto;
+    }
+
+    .card-action a:hover {
+        cursor: pointer;
+    }
+}

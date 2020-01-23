@@ -1,0 +1,16 @@
+<div class="list-page" data-bind="page: {id: 'list', afterShow: $data.pageNavigationComplete}">
+    
+    <div class="row">
+        <div class="col s12">
+            <p class="contact-list-heading">CONTACTS (<span data-bind="text: $data.contactData().length"></span>)</p>
+        </div>
+        <!-- ko foreach: $data.contactData -->
+        <div class="col s12 m4 l3 xxl2">
+            <contact-card params="contact: $data, favoriteClicked: $parent.updateFavoriteInContact, deleteClicked: $parent.deleteContact, editClicked: $parent.editContact"></contact-card>
+        </div>
+        <!-- /ko -->
+    </div>
+
+    <a href="#!/add" class="add-btn btn-floating waves-effect waves-light orange accent-2"><i class="fa fa-plus" aria-hidden="true"></i></a>
+    <popup params="expose: $data.registerPopupInstance"></popup>
+</div>

@@ -1,0 +1,35 @@
+.list-page {
+
+    position: relative;
+
+    .contact-list-heading {
+        color: #90a4ae;
+    }
+
+    @media only screen and (min-width: 1401px) {
+        .row .col.xxl2 {
+            width: 16.6666666667%;
+            margin-left: auto;
+            left: auto;
+            right: auto;
+        }
+    }
+
+    .add-btn {
+        position: fixed;
+        right: 30px;
+        bottom: 15px;
+    }
+
+    @media only screen and (max-width: 768px) {
+        .add-btn {
+            left: 48%;
+        }
+    }
+
+    @media only screen and (max-width: 600px) {
+        .add-btn {
+            left: 45%;
+        }
+    }
+}
