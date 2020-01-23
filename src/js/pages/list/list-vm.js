@@ -11,12 +11,15 @@ class ListPageComponent extends BaseComponent {
         this.contactDataServiceInstance = this.require(ContactDataService);
         this.contactData = ko.observableArray([]);
         this.popupInstance = null;
+        this.toDeleteContact = null;
+        this.popupMessage = ko.observable('');
 
         this.registerPopupInstance = this.registerPopupInstance.bind(this);
         this.pageNavigationComplete = this.pageNavigationComplete.bind(this);
         this.editContact = this.editContact.bind(this);
         this.deleteContact = this.deleteContact.bind(this);
         this.updateFavoriteInContact = this.updateFavoriteInContact.bind(this);
+        this.popupResultHandler = this.popupResultHandler.bind(this);
     }
 
     navigate() {
@@ -42,9 +45,23 @@ class ListPageComponent extends BaseComponent {
     }
 
     deleteContact(contact) {
+        this.toDeleteContact = contact;
         if(this.popupInstance) {
+            this.popupMessage('Do you want to delete '+contact.firstName()+' contact?');
             this.popupInstance.openPopup();
         }
+    }
+
+    popupResultHandler(result) {
+        if(result) {
+            this.contactDataServiceInstance.deleteContact(this.toDeleteContact.unwrap()).then(() => {
+                console.log('Delete successful');
+                this.contactDataServiceInstance.getAllData().then((data) => {
+                    this.contactData(data.map((cd) => new Contact(cd)));
+                })
+            });
+        }
+        this.popupInstance.closePopup();
     }
 
 

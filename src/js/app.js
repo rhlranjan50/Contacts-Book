@@ -45,8 +45,8 @@ class AppViewModel {
     }
 
     navigateToUpdatePage(contact) {
-        this.updatePageInstance.setContactToUpdate(contact);
         this.updatePageInstance.navigate();
+        this.updatePageInstance.setContactToUpdate(contact);
     }
 
     addFavicon() {

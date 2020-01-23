@@ -5,26 +5,32 @@ import BaseComponent from '../../BaseComponent';
 class ContactFormComponent extends BaseComponent {
     constructor(prop) {
         super(prop);
+
+        this.node = null;
+        this.submitButtonText = this.prop.submitButtonText ? this.prop.submitButtonText : 'Submit';
+        this.cancelButtonText = this.prop.cancelButtonText ? this.prop.cancelButtonText : 'Cancel';
+        this.formHeader = this.prop.formHeader ? this.prop.formHeader : 'Add New Contact';
+        this.isNew = this.prop.isNew;
+
         
-        if(this.prop.isNew) {
+        if(this.isNew) {
             this.contact = ko.observable(new Contact());
         } else {
             this.contact = this.prop.contact;
-            // this.prop.contact.subscribe(() => {
-            //     this.contact(this.prop.contact());
-            //     $(this.node).find('.validate').each((index,ele) => $(ele).addClass('valid'));
-            // })
+            this.contact.subscribe(() => {
+                setTimeout(() => {
+                    $(this.node).find('.validate').each((inde, ele) => $(ele).addClass('valid'));
+                    $(this.node).find('.validate + label').each((inde, ele) => $(ele).addClass('active'));
+                },0)
+            })
         }
-        this.node = null;
-        
-        this.submitContact = this.submitContact.bind(this);
-        this.cancel = this.cancel.bind(this);
 
         this.renderHTML = ko.pureComputed(() => {
             return this.contact() instanceof Contact;
         });
 
-
+        this.submitContact = this.submitContact.bind(this);
+        this.cancel = this.cancel.bind(this);
     }
 
     koDescendantsComplete(node) {

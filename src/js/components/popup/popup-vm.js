@@ -6,6 +6,11 @@ class PopupComponent extends BaseComponent {
         super(prop);
         
         this.mPopup = null;
+
+        this.message = ko.isObservable(this.prop.message) ? this.prop.message : ko.observable(this.prop.message);
+
+        this.okay = this.okay.bind(this);
+        this.cancel = this.cancel.bind(this);
     }
 
     koDescendantsComplete(node) {
@@ -16,12 +21,28 @@ class PopupComponent extends BaseComponent {
     favoriteClickHandler() {
         this.contact.isFavorite(!this.contact.isFavorite());
         this.prop.favoriteClicked(this.contact);
-        //TODO: Write the code for server interaction
     }
 
     openPopup() {
         this.mPopup.open();
     }
+
+    closePopup() {
+        this.mPopup.close();
+    }
+
+    okay() {
+        if(this.prop.popupResult) {
+            this.prop.popupResult(true);
+        }
+    }
+
+    cancel() {
+        if(this.prop.popupResult) {
+            this.prop.popupResult(false);
+        }
+    }
+
 
 
 }

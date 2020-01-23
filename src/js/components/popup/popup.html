@@ -1,9 +1,13 @@
-<div class="popup modal">
+<div class="popup modal blue-grey darken-4">
     <div class="modal-content">
-      <h4>Modal Header</h4>
-      <p>A bunch of text</p>
+      <h6 class="grey-text" data-bind="text: $data.message">Modal Header</h6>
     </div>
-    <div class="modal-footer">
-      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+    <div class="modal-footer blue-grey darken-4">
+      <div class="col s12 right-align">
+          <button data-bind="click: $data.okay" class="btn orange waves-effect waves-light">Yes
+          </button>&nbsp;&nbsp;
+          <button data-bind="click: $data.cancel" class="btn grey waves-effect waves-light">No
+          </button>
+      </div>
     </div>
 </div>

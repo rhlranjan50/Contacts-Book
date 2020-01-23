@@ -2,7 +2,7 @@
     
     <div class="row">
         <div class="col s12">
-            <h5 class="grey-text">New Contact</h5>
+            <h5 class="grey-text" data-bind="text: $data.formHeader">New Contact</h5>
             <small class="grey-text"><span class="orange-text">*</span> indicates required field!</small>
         </div>
         <div class="col s12 m6">
@@ -28,9 +28,9 @@
         </div>
         <div class="col s12 m6">
             <div class="input-field">
-                <input required pattern="[0-9]{10}" data-bind="value: $data.contact().phone" id="phone_number" type="text" class="validate">
+                <input required pattern="^[\+][1][\s]\([0-9]{3}\)[\s][0-9]{3}[-][0-9]{4}$" data-bind="value: $data.contact().phone" id="phone_number" type="text" class="validate">
                 <label for="phone_number">Phone Number<sup class="orange-text">*</sup></label>
-                <span class="helper-text grey-text">Phone Number must be 10 characters long</span>
+                <span class="helper-text grey-text">Phone Number must be of the format +1 (xxx) xxx-xxxx</span>
             </div>
         </div>
     </div>
@@ -69,7 +69,7 @@
                 </label>
             </div>
         </div>
-        <div class="col s6 m4">
+        <div data-bind="visible: $data.isNew" class="col s6 m4">
             <div class="switch">
                 <label class="grey-text contact-switch-label">
                     Is 
@@ -89,9 +89,9 @@
     </div>
     <div class="row">
         <div class="col s12 right-align">
-            <button data-bind="click: $data.submitContact" class="btn orange waves-effect waves-light">Save
+            <button data-bind="click: $data.submitContact, text: $data.submitButtonText" class="btn orange waves-effect waves-light">
             </button>&nbsp;&nbsp;
-            <button data-bind="click: $data.cancel" class="btn grey waves-effect waves-light">Cancel
+            <button data-bind="click: $data.cancel, text: $data.cancelButtonText" class="btn grey waves-effect waves-light">Cancel
             </button>
         </div>
     </div>
