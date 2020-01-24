@@ -1,10 +1,12 @@
 # Contacts-Book App
 
-Sontact-Books is a Single Page Application builts using HTML5, CSS3, JavaScript, Materialize.css and Knockout.js The app uses websocket to connect with the server and fetch live stocks data.
+Sontact-Books is a Single Page Application builts using HTML5, CSS3, JavaScript, Materialize.css, Knockout.js and Webpack.
 
 ## Installation
-
-Simply download the application and run index.html. You need to have an active internet connection as the Material UI framework is served from cdn.
+You can choose to clone or download the application. Unzip the project and run following commands:
+* Installing Dependencies - `npm install`
+* Running the application - `npm run start:dev`
+* Building production build - `npm run build`
 
 ## Choice of Frameworks
 * Knockout.js - Due to the less complexity of the app, I wanted to use a minimal JavaScript framework that provided data binding primarily. Initially, I thought to use React, but given the time constraints, I opted Knockout.js as the code set up and deployment is relatively easier as compared to React.
