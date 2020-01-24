@@ -27,10 +27,7 @@ You can choose to clone or download the application. Unzip the project and run f
   * index.js - root js file to import the stylesheets, frameworks, js libraries and the application.
 
 ## GitHub Page Branch
-I have created a seperate GitHub Pages branch. However, since I have not used React or Angular or Vue (any such framework that uses Babel or other tools to create a deployment build), the file contents are same.
-
-## WebSockets & HTTPS Issue
-If a web app is hosted with https certificate, then all the resource requests need to be carried out over a secure channel. In case of REST api, the api will have to be hosted on https too. Similiarly, for websocket url, the url should have wss:// protocol instead of simple ws://. However, for the given url, it seems there is no version deployed or hosted on wss:// protocol. Because GitHub pages (<rhlranjan50.github.io/Stocks-App>) host the codebase on https, the Stocks App will hosted on the aforementioned url will not work. To demo the code, you will have to download the zip and run index.html locally.
+I have created a seperate GitHub Pages branch that contains the latest production build from the master. You can access the application in action on: <https://rhlranjan50.github.io/Contacts-Book> 
 
 ## Author
 Rahul Ranjan
