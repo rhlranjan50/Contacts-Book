@@ -1,0 +1,11 @@
+.popup.modal {
+    padding: 1rem;
+
+    .fa {
+        vertical-align: middle;
+    }
+
+    @media only screen and (min-width: 768px) {
+        max-width: 480px;
+    }
+}

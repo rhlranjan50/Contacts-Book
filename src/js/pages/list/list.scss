@@ -15,20 +15,34 @@
         }
     }
 
-    .add-btn {
+    .action-btn-container {
         position: fixed;
         right: 30px;
         bottom: 15px;
+        display: flex;
+        flex-flow: column-reverse;
+        transition: all .5s;
+
+        a.btn-floating {
+            transition: all .5s;
+            margin-bottom: 15px;
+        }
     }
 
     @media only screen and (max-width: 768px) {
-        .add-btn {
+        .action-btn-container {
             left: 48%;
+            flex-direction: row;
+
+            a.btn-floating:last-child {
+                margin-bottom: 0;
+                margin-left: 15px;
+            }
         }
     }
 
     @media only screen and (max-width: 600px) {
-        .add-btn {
+        .action-btn-container {
             left: 45%;
         }
     }

@@ -1,12 +1,15 @@
 <div class="popup modal blue-grey darken-4">
     <div class="modal-content">
-      <h6 class="grey-text" data-bind="text: $data.message">Modal Header</h6>
+      <h6 class="grey-text">
+        <i class="fa small orange-text fa-exclamation-circle" aria-hidden="true"></i>&nbsp;
+        <span data-bind="text: $data.message"></span>
+      </h6>
     </div>
     <div class="modal-footer blue-grey darken-4">
       <div class="col s12 right-align">
           <button data-bind="click: $data.okay" class="btn orange waves-effect waves-light">Yes
           </button>&nbsp;&nbsp;
-          <button data-bind="click: $data.cancel" class="btn grey waves-effect waves-light">No
+          <button data-bind="click: $data.cancel" class="btn blue waves-effect waves-light">No
           </button>
       </div>
     </div>

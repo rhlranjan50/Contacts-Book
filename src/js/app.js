@@ -3,13 +3,9 @@ import './pages/add/add-vm.js';
 import './pages/update/update-vm.js';
 
 import ContactDataService from './services/ContactDataService.js';
-//import FavIcon from '../images/favicon.ico';
 
 class AppViewModel {
     constructor() {
-        //this.favicon = ko.observable(FavIcon);
-
-        //this.addFavicon();
         this.contactDataService = new ContactDataService();
 
         this.listPageInstance = null;
@@ -47,11 +43,6 @@ class AppViewModel {
     navigateToUpdatePage(contact) {
         this.updatePageInstance.navigate();
         this.updatePageInstance.setContactToUpdate(contact);
-    }
-
-    addFavicon() {
-        let faviconLink = document.querySelector('head link:first-child');
-        faviconLink.setAttribute('href', this.favicon());
     }
 }
 

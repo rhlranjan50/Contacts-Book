@@ -3,7 +3,9 @@
     <div class="row">
         <div class="col s12">
             <p class="contact-list-heading">CONTACTS (<span data-bind="text: $data.contactData().length"></span>)</p>
+            <h6 data-bind="if: $data.contactData().length === 0" class="grey-text">You do not have any contacts saved.</h6>
         </div>
+        
         <!-- ko foreach: $data.contactData -->
         <div class="col s12 m4 l3 xxl2">
             <contact-card params="contact: $data, favoriteClicked: $parent.updateFavoriteInContact, deleteClicked: $parent.deleteContact, editClicked: $parent.editContact"></contact-card>
@@ -11,6 +13,10 @@
         <!-- /ko -->
     </div>
 
-    <a href="#!/add" class="add-btn btn-floating waves-effect waves-light orange accent-2"><i class="fa fa-plus" aria-hidden="true"></i></a>
+    <div class="action-btn-container">
+        <a href="#!/add" class="add-btn btn-floating waves-effect waves-light orange accent-2"><i class="fa fa-plus" aria-hidden="true"></i></a>
+        <a data-bind="click: $data.sortInAscendingOrder" class="sort-btn btn-floating waves-effect waves-light blue accent-2"><i class="fa fa-sort-alpha-asc" aria-hidden="true"></i></a>
+    </div>
+    
     <popup params="expose: $data.registerPopupInstance, popupResult: $data.popupResultHandler, message: $data.popupMessage"></popup>
 </div>

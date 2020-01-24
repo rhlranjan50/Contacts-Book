@@ -20,6 +20,7 @@ class ListPageComponent extends BaseComponent {
         this.deleteContact = this.deleteContact.bind(this);
         this.updateFavoriteInContact = this.updateFavoriteInContact.bind(this);
         this.popupResultHandler = this.popupResultHandler.bind(this);
+        this.sortInAscendingOrder = this.sortInAscendingOrder.bind(this);
     }
 
     navigate() {
@@ -30,10 +31,14 @@ class ListPageComponent extends BaseComponent {
         this.popupInstance = instance;
     }
 
-    pageNavigationComplete() {
+    retrieveContactData() {
         this.contactDataServiceInstance.getAllData().then((data) => {
             this.contactData(data.map((cd) => new Contact(cd)));
-        })
+        });
+    }
+
+    pageNavigationComplete() {
+        this.retrieveContactData();
     }
 
     updateFavoriteInContact(contact) {
@@ -47,7 +52,7 @@ class ListPageComponent extends BaseComponent {
     deleteContact(contact) {
         this.toDeleteContact = contact;
         if(this.popupInstance) {
-            this.popupMessage('Do you want to delete '+contact.firstName()+' contact?');
+            this.popupMessage('Do you want to delete '+contact.firstName()+'\'s contact?');
             this.popupInstance.openPopup();
         }
     }
@@ -55,13 +60,14 @@ class ListPageComponent extends BaseComponent {
     popupResultHandler(result) {
         if(result) {
             this.contactDataServiceInstance.deleteContact(this.toDeleteContact.unwrap()).then(() => {
-                console.log('Delete successful');
-                this.contactDataServiceInstance.getAllData().then((data) => {
-                    this.contactData(data.map((cd) => new Contact(cd)));
-                })
+                this.retrieveContactData();
             });
         }
         this.popupInstance.closePopup();
+    }
+
+    sortInAscendingOrder() {
+        this.contactData.sort((contact1, contact2) => contact1.firstName() < contact2.firstName() ? -1 : 1);
     }
 
 

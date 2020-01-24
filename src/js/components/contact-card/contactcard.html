@@ -5,7 +5,10 @@
 		</a>
 		<div class="card-content">
 			<img class="responsive-img circle user-profile-img" data-bind="attr: {src: $data.contact.pictureUrl}">
-			<h6 class="white-text center-align" data-bind="text: $data.contact.firstName"></h6>
+			<h6 class="white-text center-align">
+				<span data-bind="text: $data.contact.firstName"></span>
+				<span data-bind="text: $data.contact.lastName"></span>
+			</h6>
 			<p class="no-margin subtitle center-align" data-bind="text: $data.contact.email"></p>
 			<p class="no-margin subtitle center-align" data-bind="text: $data.contact.phone"></p>
 		</div>
